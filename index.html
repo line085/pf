@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gina Line T. - Data Analyst</title>
+    <title>Line Tchokomakoua - Data Analyst</title>
     <style>
         * {
             margin: 0;
@@ -27,167 +27,226 @@
 
         .header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .header h1 {
-            font-size: 2.5em;
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .header .subtitle {
-            font-size: 1.3em;
-            color: #666;
+        .profile-title {
+            font-size: 1.5rem;
+            color: #7f8c8d;
             margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .profile-description {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
             gap: 30px;
+            margin-top: 30px;
             flex-wrap: wrap;
-            margin-top: 20px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #555;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
         .section {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
-        .section h2 {
-            font-size: 2em;
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
             margin-bottom: 25px;
-            color: #333;
+            font-weight: 600;
             border-bottom: 3px solid #667eea;
             padding-bottom: 10px;
         }
 
-        .about-text {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #555;
-            text-align: justify;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 30px;
+        .projects-section {
+            grid-column: 1 / -1;
         }
 
         .project-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #f8f9fa;
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .project-card h3 {
-            color: #333;
+        .project-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
             margin-bottom: 15px;
-            font-size: 1.4em;
+            font-weight: 600;
         }
 
         .project-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            max-width: 600px;
+            height: auto;
             border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .project-description {
             color: #555;
             margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .project-learnings {
-            background: rgba(102, 126, 234, 0.1);
-            border-left: 4px solid #667eea;
+            background: #e8f4f8;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
             margin-top: 15px;
         }
 
-        .project-learnings h4 {
-            color: #667eea;
+        .learnings-title {
+            font-weight: 600;
+            color: #2c3e50;
             margin-bottom: 8px;
-            font-size: 1.1em;
         }
 
         .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
             border-left: 4px solid #667eea;
-            padding-left: 25px;
-            margin-bottom: 30px;
-            position: relative;
         }
 
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: #667eea;
-            border-radius: 50%;
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
         }
 
         .experience-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
         }
 
         .experience-company {
             color: #667eea;
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-weight: 500;
         }
 
         .experience-duration {
-            color: #777;
-            font-style: italic;
-            margin-bottom: 15px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
         }
 
-        .experience-tasks {
+        .experience-description {
             color: #555;
+            line-height: 1.6;
         }
 
         .education-item {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            border-radius: 10px;
-            padding: 20px;
             margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .education-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .education-school {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .education-duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
         }
 
         .skills-grid {
@@ -197,86 +256,104 @@
         }
 
         .skill-category {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            border-radius: 10px;
+            background: #f8f9fa;
             padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
         }
 
-        .skill-category h4 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.2em;
+        .skill-category-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
         }
 
-        .skills-list {
+        .skill-list {
             color: #555;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
-        .languages {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
+        .languages-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         .language-item {
-            background: rgba(102, 126, 234, 0.1);
-            padding: 15px 20px;
-            border-radius: 25px;
-            text-align: center;
-        }
-
-        .hobbies {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
         }
 
-        .hobby-item {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            padding: 15px 20px;
-            border-radius: 25px;
-            color: #333;
+        .language-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .language-level {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .interest-tag {
+            background: #e8f4f8;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            .projects-grid {
+            .main-content {
                 grid-template-columns: 1fr;
+            }
+            
+            .profile-name {
+                font-size: 2rem;
+            }
+            
+            .profile-photo {
+                width: 120px;
+                height: 120px;
             }
             
             .contact-info {
                 flex-direction: column;
-                align-items: center;
+                gap: 15px;
             }
             
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .section, .header {
-                padding: 20px;
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="profile-photo-container" style="margin-bottom: 20px;">
-                <img src="https://imgur.com/npmSXxC.jpg" alt="Gina Line T." class="profile-photo" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #667eea; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-            </div>
-            <h1>Gina Line T.</h1>
-            <div class="subtitle">Data Analyst</div>
-            <p style="margin-top: 15px; font-style: italic; color: #666;">Candidature pour alternance, stage, CDI ou CDD</p>
-            
+        <header class="header">
+            <img src="https://imgur.com/npmSXxC.png" alt="Photo de Line Tchokomakoua" class="profile-photo">
+            <h1 class="profile-name">Line Tchokomakoua</h1>
+            <h2 class="profile-title">Data Analyst</h2>
+            <p class="profile-description">
+                Data Analyst passionnée, j'exploite la donnée de bout en bout pour guider les décisions stratégiques. 
+                Mon parcours croise data engineering, web analyse et marketing digital, avec une approche orientée impact, 
+                curiosité et autonomie. Je souhaite mettre la donnée au service de décisions concrètes et accessibles, 
+                en alliant rigueur analytique et sens du design.
+            </p>
             <div class="contact-info">
                 <div class="contact-item">
-                    <span>📱</span>
+                    <span>📞</span>
                     <span>06 63 25 33 85</span>
                 </div>
                 <div class="contact-item">
@@ -288,239 +365,230 @@
                     <span>line-tchokomakoua</span>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <!-- À propos -->
-        <div class="section">
-            <h2>À propos</h2>
-            <div class="about-text">
-                Data Analyst passionnée, j'exploite la donnée de bout en bout pour guider les décisions stratégiques. 
-                Mon parcours croise data engineering, web analyse et marketing digital, avec une approche orientée impact, 
-                curiosité et autonomie. <strong>Je souhaite mettre la donnée au service de décisions concrètes et accessibles, 
-                en alliant rigueur analytique et sens du design.</strong> Mon objectif est de transformer les insights 
-                techniques en recommandations activables pour les équipes métiers.
-            </div>
-        </div>
-
-        <!-- Projets -->
-        <div class="section">
-            <h2>Projets</h2>
-            <div class="projects-grid">
-                <!-- Projet 1: Détection de fake news -->
+        <div class="main-content">
+            <section class="section projects-section">
+                <h2 class="section-title">Projets</h2>
+                
                 <div class="project-card">
-                    <h3>🔍 Outil de détection de fake news</h3>
-                    <img src="https://imgur.com/t7ZZqVM.jpg" alt="Interface de détection de fake news" class="project-image">
+                    <h3 class="project-title">Outil de détection de fake news</h3>
+                    <img src="https://imgur.com/t7ZZqVM.png" alt="Interface de détection de fake news" class="project-image">
                     <div class="project-description">
-                        <strong>Technologies :</strong> Python & Machine Learning<br>
-                        • Modélisation de classificateurs (SVM, Random Forest, Deep Learning)<br>
-                        • Évaluation et amélioration des performances<br>
-                        • Interface utilisateur intuitive pour l'analyse en temps réel
+                        Développement d'un système de détection automatique de fausses informations utilisant des techniques de machine learning avancées.
                     </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">SVM</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">Deep Learning</span>
+                    </div>
+                    <ul class="project-description">
+                        <li>Modélisation de classificateurs (SVM, random forest, deep learning)</li>
+                        <li>Évaluation et amélioration des performances</li>
+                        <li>Interface utilisateur intuitive pour la validation</li>
+                    </ul>
                     <div class="project-learnings">
-                        <h4>Ce que j'ai appris / Impact</h4>
-                        Maîtrise des algorithmes de classification et optimisation des hyperparamètres. 
-                        J'ai développé une approche méthodique pour évaluer la fiabilité des modèles et 
-                        créé une solution pratique contre la désinformation.
+                        <div class="learnings-title">Ce que j'ai appris :</div>
+                        <div>Maîtrise des algorithmes de classification et optimisation des modèles ML. Compréhension des enjeux de la désinformation et développement d'une approche méthodique pour l'évaluation de la performance des modèles.</div>
                     </div>
                 </div>
 
-                <!-- Projet 2: Pipeline ETL AWS -->
                 <div class="project-card">
-                    <h3>☁️ Pipeline ETL sur AWS</h3>
-                    <img src="https://imgur.com/7y3jcAM.jpg" alt="Architecture Pipeline AWS" class="project-image">
+                    <h3 class="project-title">Application de gestion d'établissement scolaire</h3>
+                    <img src="https://imgur.com/vQWC3Fz.png" alt="Interface de gestion scolaire" class="project-image">
                     <div class="project-description">
-                        <strong>Technologies :</strong> AWS (Glue, Lambda, S3)<br>
-                        • Traitement de données via AWS Glue et Lambda<br>
-                        • Stockage optimisé sur S3<br>
-                        • Documentation complète de l'architecture<br>
-                        • Automatisation des flux de données
+                        Conception d'une plateforme web complète pour la gestion administrative d'établissements scolaires.
                     </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Web Development</span>
+                        <span class="tech-tag">Dashboard</span>
+                        <span class="tech-tag">Base de données</span>
+                        <span class="tech-tag">Analytics</span>
+                    </div>
+                    <ul class="project-description">
+                        <li>Conception d'une plateforme web pour la gestion des élèves, paiements, enseignants</li>
+                        <li>Intégration de dashboards d'analyse</li>
+                        <li>Système de reporting automatisé</li>
+                    </ul>
                     <div class="project-learnings">
-                        <h4>Ce que j'ai appris / Impact</h4>
-                        Expertise en architecture cloud et automatisation des pipelines de données. 
-                        Cette expérience m'a permis de comprendre les enjeux de scalabilité et 
-                        d'optimisation des coûts en environnement cloud.
+                        <div class="learnings-title">Ce que cela a permis :</div>
+                        <div>Développement d'une vision complète du cycle de vie des données, de la collecte à la visualisation. Création d'une solution qui répond aux besoins métier concrets avec une interface utilisateur adaptée.</div>
                     </div>
                 </div>
 
-                <!-- Projet 3: Gestion d'établissement scolaire -->
                 <div class="project-card">
-                    <h3>🏫 Application de gestion d'établissement scolaire</h3>
-                    <img src="https://imgur.com/vQWC3Fz.jpg" alt="Dashboard gestion scolaire" class="project-image">
+                    <h3 class="project-title">Pipeline ETL sur AWS</h3>
+                    <img src="https://imgur.com/7y3jcAM.png" alt="Architecture pipeline AWS" class="project-image">
                     <div class="project-description">
-                        <strong>Technologies :</strong> Développement web & Analytics<br>
-                        • Conception d'une plateforme web pour la gestion des élèves, paiements, enseignants<br>
-                        • Intégration de dashboards d'analyse<br>
-                        • Interface utilisateur adaptée aux différents profils
+                        Développement d'une architecture complète de traitement de données dans le cloud AWS.
                     </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">ETL</span>
+                        <span class="tech-tag">S3</span>
+                        <span class="tech-tag">Lambda</span>
+                        <span class="tech-tag">Glue</span>
+                    </div>
+                    <ul class="project-description">
+                        <li>Traitement de données via AWS Glue, Lambda et stockage sur S3</li>
+                        <li>Automatisation des processus de transformation</li>
+                        <li>Documentation de l'architecture</li>
+                    </ul>
                     <div class="project-learnings">
-                        <h4>Ce que j'ai appris / Impact</h4>
-                        Développement de solutions complètes orientées utilisateur. J'ai appris à 
-                        traduire les besoins métiers en fonctionnalités techniques et à créer des 
-                        tableaux de bord pertinents pour le pilotage opérationnel.
+                        <div class="learnings-title">Mon rôle :</div>
+                        <div>Conception de l'architecture complète, développement des scripts de transformation et mise en place de la surveillance. Cette expérience m'a permis de comprendre les enjeux de scalabilité et de performance dans le traitement de gros volumes de données.</div>
                     </div>
                 </div>
 
-                <!-- Projet 4: Gestion de bibliothèque Scala -->
                 <div class="project-card">
-                    <h3>📚 Application de gestion de bibliothèque en Scala</h3>
-                    <img src="https://imgur.com/ZnixMgP.jpg" alt="Code Scala gestion bibliothèque" class="project-image">
+                    <h3 class="project-title">Application de gestion de bibliothèque en Scala</h3>
+                    <img src="https://imgur.com/ZnixMgP.png" alt="Code Scala pour gestion de bibliothèque" class="project-image">
                     <div class="project-description">
-                        <strong>Technologies :</strong> Scala & Programmation fonctionnelle<br>
-                        • Développement d'une application Scala pour gestion des livres et utilisateurs<br>
-                        • Optimisation des structures de données pour améliorer les performances<br>
-                        • Architecture modulaire et maintenable
+                        Développement d'une application robuste pour la gestion complète d'une bibliothèque.
                     </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Scala</span>
+                        <span class="tech-tag">Programmation fonctionnelle</span>
+                        <span class="tech-tag">Optimisation</span>
+                        <span class="tech-tag">Structures de données</span>
+                    </div>
+                    <ul class="project-description">
+                        <li>Développement d'une application Scala pour gestion des livres et utilisateurs</li>
+                        <li>Optimisation des structures de données pour améliorer les performances</li>
+                        <li>Implémentation de fonctionnalités avancées de recherche</li>
+                    </ul>
                     <div class="project-learnings">
-                        <h4>Ce que j'ai appris / Impact</h4>
-                        Maîtrise de la programmation fonctionnelle et des concepts avancés de Scala. 
-                        Ce projet m'a permis d'approfondir l'optimisation algorithmique et la 
-                        conception de systèmes performants.
+                        <div class="learnings-title">Ce que j'ai appris :</div>
+                        <div>Maîtrise de la programmation fonctionnelle et des concepts avancés de Scala. Compréhension approfondie de l'optimisation des performances et de la conception d'architectures évolutives.</div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Expériences Professionnelles -->
-        <div class="section">
-            <h2>Expériences Professionnelles</h2>
-            
-            <div class="experience-item">
-                <div class="experience-title">Data Engineer</div>
-                <div class="experience-company">DEVOTEAM</div>
-                <div class="experience-duration">Janvier à Avril 2024 (4 mois - Stage)</div>
-                <div class="experience-tasks">
-                    • Pipelines ETL (Python, AWS Glue)<br>
-                    • Traitement & stockage de données (S3, Lambda)<br>
-                    • Dashboards & documentation technique
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-title">Web Analyste</div>
-                <div class="experience-company">KEVMAX SARL</div>
-                <div class="experience-duration">Juin 2021 à Juin 2023 (2 ans - CDI)</div>
-                <div class="experience-tasks">
-                    • Suivi et optimisation des performances web<br>
-                    • Création de dashboards décisionnels<br>
-                    • Analyse des campagnes SEA, SEO, social ads ; reporting hebdomadaire<br>
-                    • Recommandations stratégiques basées sur les données utilisateurs<br>
-                    • Création de visuels (UI/UX) et portfolios clients
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-title">Community Manager</div>
-                <div class="experience-company">EED SARL</div>
-                <div class="experience-duration">Août 2020 à Mars 2021 (8 mois - CDD)</div>
-                <div class="experience-tasks">
-                    • Élaboration des stratégies marketing<br>
-                    • Pilotage des équipes de campagnes<br>
-                    • Suivi des retours utilisateurs et amélioration de l'expérience client
-                </div>
-            </div>
-        </div>
-
-        <!-- Formation -->
-        <div class="section">
-            <h2>Formation</h2>
-            
-            <div class="education-item">
-                <div class="experience-title">Mastère II en Intelligence Artificielle et Management (Data Analyst)</div>
-                <div class="experience-company">IA SCHOOL PARIS</div>
-                <div class="experience-duration">Septembre 2024</div>
-                <div style="margin-top: 10px; color: #555;">
-                    Spécialisation : Data Analyst, Data Scientist, Chef de projet
-                </div>
-            </div>
-
-            <div class="education-item">
-                <div class="experience-title">Master I en Marketing</div>
-                <div class="experience-company">IUGE</div>
-                <div class="experience-duration">Septembre 2019 à Septembre 2020</div>
-                <div style="margin-top: 10px; color: #555;">
-                    Économie des sciences et gestion
-                </div>
-            </div>
-        </div>
-
-        <!-- Compétences -->
-        <div class="section">
-            <h2>Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Langages & Data</h4>
-                    <div class="skills-list">
-                        Python, SQL, R, Spark, SAS, MATLAB
+            <section class="section">
+                <h2 class="section-title">Expérience Professionnelle</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Data Engineer</div>
+                            <div class="experience-company">DEVOTEAM</div>
+                        </div>
+                        <div class="experience-duration">Janvier - Avril 2024 (4 mois - Stage)</div>
+                    </div>
+                    <div class="experience-description">
+                        • Développement de pipelines ETL (Python, AWS Glue)<br>
+                        • Traitement & stockage de données (S3, Lambda)<br>
+                        • Création de dashboards & documentation technique
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h4>Data Viz & Outils</h4>
-                    <div class="skills-list">
-                        Power BI, Tableau, Google Analytics, Git, Excel
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Web Analyste</div>
+                            <div class="experience-company">KEVMAX SARL</div>
+                        </div>
+                        <div class="experience-duration">Juin 2021 - Juin 2023 (2 ans - CDI)</div>
+                    </div>
+                    <div class="experience-description">
+                        • Suivi et optimisation des performances web<br>
+                        • Création de dashboards décisionnels<br>
+                        • Analyse des campagnes SEA, SEO, social ads ; reporting hebdomadaire<br>
+                        • Recommandations stratégiques basées sur les données utilisateurs<br>
+                        • Création de visuels (UI/UX) et portfolios clients
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h4>Cloud & Big Data</h4>
-                    <div class="skills-list">
-                        AWS (S3, Glue, Lambda), Azure, BigQuery, Hadoop, Scala
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Community Manager</div>
+                            <div class="experience-company">EED SARL</div>
+                        </div>
+                        <div class="experience-duration">Août 2020 - Mars 2021 (8 mois - CDD)</div>
+                    </div>
+                    <div class="experience-description">
+                        • Élaboration des stratégies marketing<br>
+                        • Pilotage des équipes de campagnes<br>
+                        • Suivi des retours utilisateurs et amélioration de l'expérience client
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Formation</h2>
+                
+                <div class="education-item">
+                    <div class="education-title">Mastère 2 en Intelligence Artificielle et Management (Data Analyst)</div>
+                    <div class="education-school">IA SCHOOL PARIS</div>
+                    <div class="education-duration">Septembre 2024</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title">Mastère 1 en Marketing</div>
+                    <div class="education-school">IUGE</div>
+                    <div class="education-duration">Septembre 2019 - Septembre 2020</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title">Économie des Sciences et Gestion</div>
+                    <div class="education-school">Formation universitaire</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Compétences Techniques</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-category-title">Langages & Data</div>
+                        <div class="skill-list">Python, SQL, R, Spark, SAS, MATLAB</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">DataViz & Outils</div>
+                        <div class="skill-list">Power BI, Tableau, Google Analytics, Git, Excel</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Cloud & Big Data</div>
+                        <div class="skill-list">AWS (S3, Glue, Lambda), Azure, BigQuery, Hadoop, Scala</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Bases de données</div>
+                        <div class="skill-list">MySQL, MongoDB</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Analyse Web & Marketing</div>
+                        <div class="skill-list">Google Analytics, Hootsuite</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Design & Création visuelle</div>
+                        <div class="skill-list">Adobe Photoshop, Illustrator, InDesign</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Langues</h2>
+                <div class="languages-section">
+                    <div class="language-item">
+                        <span class="language-name">Français</span>
+                        <span class="language-level">Langue maternelle</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Anglais</span>
+                        <span class="language-level">B2 (TOEFL en cours)</span>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h4>Bases de données</h4>
-                    <div class="skills-list">
-                        MySQL, MongoDB
-                    </div>
+                <h2 class="section-title">Centres d'intérêt</h2>
+                <div class="interests-list">
+                    <span class="interest-tag">Lecture (actualités/sciences/finances et développement)</span>
+                    <span class="interest-tag">Cuisine</span>
+                    <span class="interest-tag">Bénévolat (cuisine et distribution de repas aux sans-abris)</span>
                 </div>
-
-                <div class="skill-category">
-                    <h4>Soft Skills</h4>
-                    <div class="skills-list">
-                        Créativité, adaptabilité, esprit d'analyse, communication
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Design & Création visuelle</h4>
-                    <div class="skills-list">
-                        Adobe Photoshop, Illustrator, InDesign
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Langues -->
-        <div class="section">
-            <h2>Langues</h2>
-            <div class="languages">
-                <div class="language-item">
-                    <strong>Français</strong><br>
-                    Langue maternelle
-                </div>
-                <div class="language-item">
-                    <strong>Anglais</strong><br>
-                    B2 (TOEFL en cours)
-                </div>
-            </div>
-        </div>
-
-        <!-- Loisirs -->
-        <div class="section">
-            <h2>Loisirs</h2>
-            <div class="hobbies">
-                <div class="hobby-item">
-                    📚 Lecture (actualités/sciences/finances et développement)
-                </div>
-                <div class="hobby-item">
-                    👨‍🍳 Cuisine
-                </div>
-                <div class="hobby-item">
-                    🤝 Bénévolat (cuisine et distribution de repas aux sans-abris)
-                </div>
-            </div>
+            </section>
         </div>
     </div>
 </body>
